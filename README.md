@@ -94,7 +94,7 @@ curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 ```
 {"status":"OK","data":[{"amount":"0.00149377","address":"bc1qllf33yhp7m80sfm35fce0tagcckey7dljauwd5","tx":"7f37726aca676a11ae30277d1a12bfec761f3523dc64c151abe2ec7d410c36fb","created_time":"1683017935","payment_id":"38518124"},{"amount":"0.00137954","address":"bc1qllf33yhp7m80sfm35fce0tagcckey7dljauwd5","tx":"398e02bff83a6e71df32516ac584314fd234e00e479274df8d6b46265c93286d","created_time":"1682845283","payment_id":"38409239"}],"count":2,"offset":0,"limit":2,"total":11}
 ```
-`created_time` возвращается в Unix Time Stamp
+`created_time` returns in Unix Time Stamp
 
 ****
 
