@@ -17,7 +17,7 @@ BTCpool.kz предлагает разработчикам использова�
 
 Просто отправьте запрос с заголовком `X-API-KEY: <your_api_key>`:
 ```
-curl 'http://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
+curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 -H 'X-API-KEY: 5f42fd-1119a9-011313-c043cd-bd6d52'
 ```
 ****
