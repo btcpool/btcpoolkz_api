@@ -1,27 +1,27 @@
 # API BTCpool.kz
-BTCpool.kz предлагает разработчикам использовать API (Application Programming Interface) - веб-сервис для получения данных.
-Разработчики могут использовать API в приложениях и отправлять HTTP-запросы на сервер BTCpool в соответствии с предложенным описанием.
-Ответ от веб-запроса будет содержать данные в формате JSON.
+BTCpool.kz offers developers to use API (Application Programming Interface) - a web service for receiving data.
+Developers can use the API in applications and send HTTP requests to the BTCpool server in accordance with the proposed description.
+The response from the web request will contain data in JSON format.
 
 ****
-## Методы API
-* Общая статистика пула - без авторизации
-* Суммарные данные аккаунта
-* История дохода
-* История выплат
-* Список воркеров
+## Methods API
+* General statistics of the pool - without authorization
+* Summary account data
+* Income history
+* Payment history
+* List of workers
 ****
 
-### Авторизация
-Каждая учетная запись или дочерняя учетная запись имеет свой `api key`, который можно найти в личном кабинете, в разделе `Центр настроек`
+### Authorization
+Each account or child account has its own `api key`, which can be found in your account, in the `Settings Center` section
 
-Просто отправьте запрос с заголовком `X-API-KEY: <your_api_key>`:
+Just send a request with the title `X-API-KEY: <your_api_key>`:
 ```
 curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 -H 'X-API-KEY: 5f42fd-1119a9-011313-c043cd-bd6d52'
 ```
 ****
-### `main_stat` Общая статистика пула
+### `main_stat` General pool statistics
 **GET**
 
 `https://btcpool.kz/ru/api?v=1&method=main_stat`
@@ -31,12 +31,12 @@ curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 {"status":"OK","data":{"BTC":{"miners":"1853","fee":1,"poolHs":"109444141315644889","networkHs":"4.4014015804097E+20","networkDiff":"52391178981379","poolHs_string":"109.44 PH\/s","networkHs_string":"440.14 EH\/s","networkDiff_string":"52.39T"},"BCH":{"miners":"5","fee":1,"poolHs":"293906788182043","networkHs":"2.89E+18","networkDiff":"404189587524.26","poolHs_string":"293.91 TH\/s","networkHs_string":"2.89 EH\/s","networkDiff_string":"404.19G"},"LTC":{"miners":"5","fee":1,"poolHs":"2419498243","networkHs":"700700000000000","networkDiff":"26922009.073457","poolHs_string":"2.42 GH\/s","networkHs_string":"700.7 TH\/s","networkDiff_string":"26.92M"}}}
 ```
 ****
-### `summary_data` Суммарные данные аккаунта
+### `summary_data` Account summary information
 **GET**
 
 `https://btcpool.kz/ru/api?v=1&method=summary_data&currency=BTC`
 
-**Обязательные параметры:**
+**Required parameters:**
 
 `currency=string` BTC, BCH, LTC
 
@@ -46,16 +46,16 @@ curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 ```
 
 ****
-### `profit_history` История дохода
+### `profit_history` Income History
 **GET**
 
 `https://btcpool.kz/ru/api?v=1&method=profit_history&currency=BTC&from=2023-04-21&to=2023-05-02&limit=10&offset=5`
 
-**Обязательные параметры:**
+**Required parameters:**
 
 `currency=string` BTC, BCH, LTC
 
-**Опциональные параметры:** 
+**Optional parameters:** 
 
 `from=date`
 
@@ -71,16 +71,16 @@ curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 ```
 
 ****
-### `payment_history` История выводов
+### `payment_history` Withdrawal history
 **GET**
 
 `https://btcpool.kz/ru/api?v=1&method=payment_history&currency=BTC&from=2023-04-21&to=2023-05-02&limit=10&offset=5`
 
-**Обязательные параметры:**
+**Required parameters:**
 
 `currency=string` BTC, BCH, LTC
 
-**Опциональные параметры:** 
+**Optional parameters:** 
 
 `from=date`
 
@@ -98,16 +98,16 @@ curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 
 ****
 
-### `workers` Список воркеров
+### `workers` List of workers
 **GET**
 
 `https://btcpool.kz/ru/api?v=1&method=workers&currency=BTC&limit=100`
 
-**Обязательные параметры:**
+**Required parameters:**
 
 `currency=string` BTC, BCH, LTC
 
-**Опциональные параметры:** 
+**Optional parameters:** 
 
 `offset=int`
 
@@ -118,4 +118,4 @@ curl 'https://btcpool.kz/ru/api?v=1&currency=BTC&method=profit_history' \
 {"status":"OK","data":[{"hashrate_10min":"0","hashrate_1hour":"0","hashrate_24hour":"0","last_active":"1681255059","reject_rate":"0.00000000","worker_id":"24032703","worker_name":"worker1","worker_status":"0"},{"hashrate_10min":"0","hashrate_1hour":"0","hashrate_24hour":"0","last_active":"1683024000","reject_rate":"0.00000000","worker_id":"23890575","worker_name":"6094","worker_status":"0"},{"hashrate_10min":"0","hashrate_1hour":"0","hashrate_24hour":"0","last_active":"1683024000","reject_rate":"0.00000000","worker_id":"23890172","worker_name":"897","worker_status":"0"},{"hashrate_10min":"0","hashrate_1hour":"0","hashrate_24hour":"0","last_active":"1683024000","reject_rate":"0.00000000","worker_id":"23890171","worker_name":"8d77","worker_status":"0"},{"hashrate_10min":"0","hashrate_1hour":"0","hashrate_24hour":"0","last_active":"1683024000","reject_rate":"0.00000000","worker_id":"23890170","worker_name":"1x5","worker_status":"0"},{"hashrate_10min":"0","hashrate_1hour":"0","hashrate_24hour":"0","last_active":"1683024000","reject_rate":"0.00000000","worker_id":"23890169","worker_name":"9be6","worker_status":"0"}],"count":6,"offset":0,"limit":100,"total":6}
 ```
 
-`last_active` возвращается в Unix Time Stamp
+`last_active` returns in Unix Time Stamp
